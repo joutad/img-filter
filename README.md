@@ -7,7 +7,7 @@ It makes use of Nvidia Warp API, which allows the use of CUDA-capable Nvidia GPU
 
 Check if your Nvidia GPU is CUDA-capable [here](https://developer.nvidia.com/cuda-gpus).
 
-See the [GPU acceleration](##GPU-acceleration) section to see how to improve performance if you have access to Nvidia GPUs. 
+See the [GPU acceleration](#GPU-acceleration) section to see how to improve performance if you have access to Nvidia GPUs. 
 
 ## Dependencies
 Ensure you have the following python libraries installed:
