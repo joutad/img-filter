@@ -3,9 +3,11 @@ This program performs two different image processing tasks:
 - Noise removal by applying median filtering
 - Sharpening images via the unsharp masking method
 
-This program makes use of Nvidia Warp API, which allows the use of Nvidia GPUs to speed up processing of images.
+It makes use of Nvidia Warp API, which allows the use of CUDA-capable Nvidia GPUs to speed up processing of images.
 
-See the **GPU acceleration** section to see how to improve performance if you have access to Nvidia GPUs. 
+Check if your Nvidia GPU is CUDA-capable [here](https://developer.nvidia.com/cuda-gpus).
+
+See the [GPU acceleration](##GPU-acceleration) section to see how to improve performance if you have access to Nvidia GPUs. 
 
 ## Dependencies
 Ensure you have the following python libraries installed:
@@ -59,8 +61,23 @@ The program is executed in the command line in the following format:
 #### Noise removal
 `python3 main.py -n 3 1 image.png result.png`
 
+## GPU acceleration
+If you have Nvidia GPUs that are CUDA-capable, you may be able to speed up the program by changing a line in the code.
+
+At line 10 in `main.py`, the device is originally set to:
+
+`device = "cpu"`
+
+Change "cpu" to "cuda:0".
+
+If you have multiple CUDA-capable GPUs on your system, you may need to change the "0" to a different number.
+
+The format should be `"cuda:i"`.
+
+See the Warp [documentation](https://nvidia.github.io/warp/modules/devices.html) for more details.   
+
 ## Troubleshooting
 One issue some may run into is if the image is using unsupported channels. Make sure the image is only using the following channels:
-- RGB, 
-- RGBA,
+- RGB
+- RGBA
 - Greyscale
